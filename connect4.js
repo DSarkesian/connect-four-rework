@@ -33,16 +33,17 @@ function makeBoard() {
 
 function makeHtmlBoard() {
   // TODO: get "htmlBoard" variable from the item in HTML w/ID of "board"
+  let htmlBoard = document.getElementById("board");
 
+// creates elements for game board adds event listener to top element
 
-  // TODO: add comment for this code
-  var top = document.createElement("tr");
+  let top = document.createElement("tr");
   top.setAttribute("id", "column-top");
   top.addEventListener("click", handleClick);
 
   // TODO: add comment for this code
   for (var x = 0; x < WIDTH; x++) {
-    var headCell = document.createElement("td");
+    let headCell = document.createElement("td");
     headCell.setAttribute("id", x);
     top.append(headCell);
   }
@@ -52,9 +53,17 @@ function makeHtmlBoard() {
   // uses HEIGHT to create table rows
   // uses WIDTH to create table cells for each row
   for (var y = 0; y < HEIGHT; y++) {
+    let row = document.createElement("tr");
+
+
+
     // TODO: Create a table row element and assign to a "row" variable
 
     for (var x = 0; x < WIDTH; x++) {
+      let cell = document.createElement("td");
+      cell.setAttribute("id", `${y}-${x}`);
+      row.append(cell);
+
       // TODO: Create a table cell element and assign to a "cell" variable
 
       // TODO: add an id, y-x, to the above table cell element
@@ -63,6 +72,7 @@ function makeHtmlBoard() {
       // TODO: append the table cell to the table row
 
     }
+    htmlBoard.append(row);
     // TODO: append the row to the html board
 
   }
@@ -79,6 +89,12 @@ function findSpotForCol(x) {
 
 function placeInTable(y, x) {
   // TODO: make a div and insert into correct table cell
+  let divPiece = document.createElement("div");
+  divPiece.classList.add("piece", `P${currPlayer}`);
+
+  const tableCell = document.getElementById(`${y}-${x}`);
+  tableCell.append(divPiece)
+
 }
 
 /** endGame: announce game end */
