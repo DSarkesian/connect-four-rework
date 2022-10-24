@@ -89,11 +89,11 @@ function findSpotForCol(x) {
 
 function placeInTable(y, x) {
   // TODO: make a div and insert into correct table cell
-  let divPiece = document.createElement("div");
-  divPiece.classList.add("piece", `P${currPlayer}`);
+  let piece = document.createElement("div");
+  piece.classList.add("piece", `P${currPlayer}`);
 
-  const tableCell = document.getElementById(`${y}-${x}`);
-  tableCell.append(divPiece)
+  const spot = document.getElementById(`${y}-${x}`);
+  spot.append(piece)
 
 }
 
